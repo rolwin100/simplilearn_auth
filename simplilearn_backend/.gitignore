@@ -1,8 +1,0 @@
-node_modules
-
-.env
-*.log
-.vscode
-.adminbro
-
-.DS_Store
