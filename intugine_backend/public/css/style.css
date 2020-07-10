@@ -1,0 +1,128 @@
+body {
+  font-family: 'sans-serif';
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 1vw;
+  font-weight: 800;
+  color: #fff;
+}
+
+.logo img {
+  width: 80%;
+  margin-top: 30px;
+}
+
+.download img {
+  width: 40%;
+  cursor: pointer;
+  margin-left: -4%;
+}
+
+.font-wrapper {
+  font-size: 3vw;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.color-blue {
+  color: #00f0ff;
+}
+
+.twitter,
+.facebook {
+  width: 8%;
+  cursor: pointer;
+}
+
+/* .left-column {
+  width: 50%;
+}
+
+.right-column {
+  width: 50%;
+} */
+
+.flexcontainer {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.content-image {
+  width: 100%;
+  width: 95%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  background-image: url(/img/wrapper.jpg);
+  background-size: cover;
+  padding: 40px;
+  height: 100vh;
+}
+.button {
+  background: linear-gradient(#80efef, #4093d9);
+  padding: 20px; /* position: absolute; */
+  color: #fff;
+  vertical-align: top;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 70px;
+}
+
+@media screen and (min-height: 400px) and (max-width: 537px) {
+  .flexcontainer {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+  }
+  .content-image {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 13%;
+  }
+  .wrapper {
+    background-image: url(/img/wrapper.jpg);
+    background-size: cover;
+    padding: 40px;
+  }
+}
+
+@media screen and (min-height: 400px) and (max-width: 360px) {
+  .content-image {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 18%;
+  }
+}
+
+@media screen and (min-height: 400px) and (min-width: 538px) and (max-width: 674px) {
+  .flexcontainer {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+  }
+  .content-image {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 60%;
+    left: 13%;
+  }
+  .wrapper {
+    background-image: url(/img/wrapper.jpg);
+    background-size: cover;
+    padding: 40px;
+  }
+}

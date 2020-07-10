@@ -1,0 +1,70 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Chase center
+    meta(name='description' content="Chase center")
+    meta(property='og:title' content='Chase center')
+    meta(property='og:site_name' content='Chase center')
+    meta(property='og:url' content='Chase center')
+    meta(property='og:description' content='')
+    meta(property='og:image' content=imageUrl)
+    meta(property='og:type' content='business.business')
+
+    link(rel='icon', href='/favicon.ico', sizes='16x16')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:300&display=swap', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/css/style.css')
+  body
+    .wrapper
+      .flexcontainer
+        .left-column
+          div.content-image(style=`background-image: url('${imageUrl}');`)
+        .right-column
+          .logo
+            img(src='/img/logo.png')
+          p.font-wrapper
+            | Thanks 
+            span.color-blue
+              | for being
+              br
+              |  part of the
+              br
+            |  Chase Center 
+            br
+            span.color-blue Experience
+            |  .
+          .download
+            a(href=imageUrl download)
+              img(src='/img/download.png')
+          p SHARE BY
+          .col-md-2
+            a#shareOnTwitter.pointer(target='_blank', onclick='shareOnTwitter()')
+              img.twitter(src='/img/twitter.png')
+            a#shareOnFb.pointer(target='_blank', onclick='shareOnFb()')
+              img.facebook(src='/img/facebook.png', hspace='40')
+            a.button(href=`https://chase-basketball.s3.amazonaws.com/embed/v1/embed.html?v=12&APIKey=${apiKey}&query=${email}`, target="_blank")
+              | View my mosaic
+    script. 
+      const fbShareAPi = 'http://www.facebook.com/sharer.php?u=';
+      const twitterShareApi =
+        'https://twitter.com/intent/tweet?hashtags=ChaseCenter&url=';
+
+      function shareOnFb() {
+        window.open(
+          fbShareAPi + window.location.href,
+          'sharer',
+          'toolbar=0,status=0,width=600,height=350',
+        );
+        return;
+      }
+
+      function shareOnTwitter() {
+        window.open(
+          twitterShareApi + window.location.href,
+          'twitter-popup',
+          'toolbar=0,status=0,width=600,height=350',
+        );
+        return;
+      }

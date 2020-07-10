@@ -1,0 +1,17 @@
+version: '3'
+services:
+  api:
+    depends_on:
+      - mongo
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/project
+  mongo:
+    image: mongo:4.0
+    ports:
+      - 27017:27017
