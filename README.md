@@ -2,7 +2,7 @@
 
 ### Backend
 
-[link to backend readme](./simplilearn_backend/Readme.md)
+[link to backend readme](./boilerplate_backend/Readme.md)
 
 ### Frontend
-[link to frontend readme](./simplilearn_frontend/README.md)
+[link to frontend readme](./boilerplate_frontend/README.md)
