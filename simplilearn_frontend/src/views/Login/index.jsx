@@ -1,29 +1,20 @@
+/* eslint-disable no-console */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import {
-  Form, Input, Button, Row, Card, Col,
+  Form, Input, Button, Row, Card, Col, Checkbox, Typography,
 } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+
 import { connect } from 'react-redux';
 
 import { getLogin } from 'views/Login/actions';
 import { Link } from 'react-router-dom';
+// import style from './login.module.less';
 
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
+const { Title } = Typography;
 
 const Login = (props) => {
   // eslint-disable-next-line no-shadow
@@ -38,12 +29,13 @@ const Login = (props) => {
   };
 
   return (
-    <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
-      <Card>
-        <Col>
+    <Row type="flex" justify="center" align="middle" className="authForm" style={{ minHeight: '100vh' }}>
+      <Col md={6} xs={18} lg={6} sm={12}>
+        <Card className="authCardBorder">
+          <Title level={4}>Login</Title>
           <Form
-            {...layout}
-            name="basic"
+            name="normal_login"
+            className="login-form"
             initialValues={{
               remember: true,
             }}
@@ -51,31 +43,48 @@ const Login = (props) => {
             onFinishFailed={onFinishFailed}
           >
             <Form.Item
-              label="Username"
               name="username"
-              rules={[{ required: true, message: 'Please input your username!' }]}
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your Username!',
+                },
+              ]}
             >
-              <Input />
+              <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
             </Form.Item>
-
             <Form.Item
-              label="Password"
               name="password"
-              rules={[{ required: true, message: 'Please input your password!' }]}
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input your Password!',
+                },
+              ]}
             >
-              <Input.Password />
+              <Input
+                prefix={<LockOutlined className="site-form-item-icon" />}
+                type="password"
+                placeholder="Password"
+              />
+            </Form.Item>
+            <Form.Item>
+              <Form.Item name="remember" valuePropName="checked" noStyle>
+                <Checkbox>Remember me</Checkbox>
+              </Form.Item>
             </Form.Item>
 
-            <Form.Item {...tailLayout}>
-              <Button type="primary" htmlType="submit">
-                Submit
+            <Form.Item>
+              <Button type="primary" htmlType="submit" className="login-form-button">
+                Log in
               </Button>
             </Form.Item>
           </Form>
+
           {props.auth.error && <p style={{ color: 'red' }}>Credentials invalid</p>}
           <Link to="/signup">Signup?</Link>
-        </Col>
-      </Card>
+        </Card>
+      </Col>
     </Row>
   );
 };

@@ -1,0 +1,42 @@
+@import '~antd/es/style/themes/default.less';
+@import (reference) './index.less';
+
+h1, h2, h3, h4, h5, h6 {
+    color: @text-color;
+    font-weight: 600 !important;
+    margin-bottom: 1em !important;
+}
+.contentCenter{
+    display: flex;
+    justify-content: center;
+}
+.authForm{
+    min-height: '100vh';
+    background-image: url(../images/bg-login.svg);
+    background-color: @bg-color;
+}
+.authCardBorder{
+    border-radius: @border-radius-full;
+    box-shadow: @box-shadow;
+    
+    .login-form-forgot {
+        float: right;
+    }
+    .ant-col-rtl .login-form-forgot {
+        float: left;
+    }
+    .login-form-button {
+        width: 100%;
+    }
+}
+
+.sidebar{
+    .ant-menu-inline {
+        .ant-menu-item::after{
+            border-right: 0;
+        }
+    }
+    .ant-menu-item-selected{
+        border-right: 3px solid @primary-color;
+    }
+}

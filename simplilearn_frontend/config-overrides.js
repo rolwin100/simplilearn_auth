@@ -19,6 +19,9 @@ module.exports = (config, env) => {
     }),
     addLessLoader({
       javascriptEnabled: true,
+      modifyVars: {
+        'primary-color': '#2f54eb',
+      },
     }),
     ...plugins.map((plugin) => addBabelPlugin(plugin)),
   )(
