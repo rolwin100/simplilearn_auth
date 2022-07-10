@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "awilix": "^4.2.1",
-    "aws-sdk": "^2.501.0",
+    "aws-sdk": "^2.814.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "color-thief": "^2.2.5",
