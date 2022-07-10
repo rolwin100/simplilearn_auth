@@ -1,31 +1,51 @@
 const {
-  override, addBabelPlugin, fixBabelImports, addLessLoader,
-} = require('customize-cra');
+  override,
+  addBabelPlugin,
+  fixBabelImports,
+  removeModuleScopePlugin,
+} = require("customize-cra");
+const AntdDayjsWebpackPlugin = require("antd-dayjs-webpack-plugin");
+
+const addLessLoader = require("customize-cra-less-loader");
 
 module.exports = (config, env) => {
   const plugins = [];
 
-  if (env === 'development') {
-    plugins.push('react-hot-loader/babel');
-    plugins.push('@babel/plugin-syntax-dynamic-import');
+  let loaders = config.resolve;
+  loaders.fallback = {
+    tls: false,
+    net: false,
+    "utf-8-validate": false,
+    bufferutil: false,
+  };
+
+  config.plugins.push(
+    new AntdDayjsWebpackPlugin(),
+  );
+
+  if (env === "development") {
+    plugins.push("@babel/plugin-syntax-dynamic-import");
   }
 
-  // plugins.push(['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }]);
+  // plugins.push(['import', { libraryName: 'ym-antd', libraryDirectory: 'es', style: 'css' }]);
 
   return override(
-    fixBabelImports('antd', {
-      libraryDirectory: 'es',
+    removeModuleScopePlugin(),
+    fixBabelImports("ym-antd", {
+      libraryDirectory: "es",
       style: true,
     }),
     addLessLoader({
-      javascriptEnabled: true,
-      modifyVars: {
-        'primary-color': '#2f54eb',
+      lessLoaderOptions: {
+        lessOptions: {
+          math: "always",
+          javascriptEnabled: true,
+          modifyVars: {
+            "primary-color": "#007ED4",
+          },
+        },
       },
     }),
-    ...plugins.map((plugin) => addBabelPlugin(plugin)),
-  )(
-    config,
-    env,
-  );
+    ...plugins.map((plugin) => addBabelPlugin(plugin))
+  )(config, env);
 };
